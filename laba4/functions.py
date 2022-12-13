@@ -42,3 +42,8 @@ def entropy_cond(ps, matrix):
         i += 1
     return h
 
+def channel_capacity(xs, t):
+    vt = 1 / t
+    m = len(xs)
+    c = (1 /( t * 0.001)) * log2(m)
+    return c
