@@ -11,17 +11,39 @@ def pr():
         "к" : "0.07"
     }
 
-    l = ["", "", "", "", "", "", ""]
+    l = [""] * 7
     table2 = table.copy()
     
-    table2["а"] = "00"
-    table2["в"] = "01"
+    s = 0
+    b = -1
+    for k in table.keys():
+        if s >= 0.5:
+            break        
+        s += float(table[k])
+        b += 1
+    
+    for i in range(len(l)):
+        if i <= b:
+            l[i] = "0"
+        else:
+            l[i] = "1"
 
-    i = 0
-    for j in table2.keys():
-        table2[j] = str(bin(i))
-        i += 1
-    print(table2.values())
+    co = b + 1
+    while co > 1:
+        l[0:int(co/2)] = map(("0").__add__ , l[0:int(co/2)])
+        l[int(co/2):int(co)] = map(("1").__add__ , l[int(co/2):int(co)])
+        print(l)
+        co = co / 2
+    
+    co = len(l) - b - 1
+    while co > 1:
+        beg = int(len(l) - co)
+        mid = beg + int(co/2)
+        l[beg:mid] = map(("0").__add__ , l[beg:mid])
+        l[mid:len(l)] = map(("1").__add__ , l[mid:len(l)])
+        print(l)
+        co = co / 2
+    print(l)
     return
 
 def sr():
