@@ -60,7 +60,7 @@ def info_per_symbol(gen, b):
 
     return sr_inf/n_sr
 
-def func(arr, ans):
+def table(arr, ans):
     half = sum(map(lambda x: x[1], arr))
     sum1 = 0
     index = 1
@@ -80,8 +80,8 @@ def func(arr, ans):
     if len(arr1) == 1:
         ans.append(arr1[0])
     else:
-        func(arr1, ans)
+        table(arr1, ans)
     if len(arr0) == 1:
         ans.append(arr0[0])
     else:
-        func(arr0, ans)
+        table(arr0, ans)
